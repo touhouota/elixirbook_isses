@@ -1,5 +1,5 @@
 defmodule Issues.CLI do
-  @default 4
+  @default_count 4
 
   @moduledoc """
   Handle the command line parsing and the dispatch to
@@ -27,6 +27,9 @@ defmodule Issues.CLI do
         -> :help
 
       {_, [user, project, count], _}
+        -> {user, project, count}
+
+      {_, [user, project], _}
         -> {user, project, @default_count}
 
       _ -> :help
