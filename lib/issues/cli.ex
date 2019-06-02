@@ -11,6 +11,7 @@ defmodule Issues.CLI do
     argv
     |> parse_args
     |> process
+    |> sort_into_ascending_order
   end
 
   @doc """
@@ -64,5 +65,10 @@ defmodule Issues.CLI do
   def convert_to_list_of_map(list) do
     list
     |> Enum.map(&Enum.into(&1, Map.new))
+  end
+
+  def sort_into_ascending_order(list_of_isses) do
+    Enum.sort list_of_isses,
+         fn i1, i2 -> i1["created_at"] <= i2["created_at"] end
   end
 end
