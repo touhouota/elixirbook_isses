@@ -10,7 +10,6 @@ defmodule Issues.GithubIssues do
 
   def issues_url(user, project) do
     # "https://api.github.com/repos/#{user}/#{project}/issues"
-    IO.puts @github_url
     "#{@github_url}/repos/#{user}/#{project}/issues"
   end
 
