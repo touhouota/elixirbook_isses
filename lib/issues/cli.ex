@@ -51,7 +51,7 @@ defmodule Issues.CLI do
     |> convert_to_list_of_map
     |> sort_into_ascending_order
     |> Enum.take(count)
-    |> print_table_for_columns(["number", "created_at", "title"])
+    |> Issues.TableFormatter.print_table_for_columns(["number", "created_at", "title"])
   end
 
   def decode_response({:ok, body}) do
